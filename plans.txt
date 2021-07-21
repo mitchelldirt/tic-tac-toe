@@ -1,0 +1,3 @@
+1. Enter names for player 1 and player 2 (playerSelect.html). Player 1 is 'X'
+
+2. Player 1's name goes above the board and player 2's below. When it's the players turn their name turns green. When a player wins their name turns yellow and 'wins!' is added after their name. If they tie their names turn blue and 'tied' gets added to the end of both names.
