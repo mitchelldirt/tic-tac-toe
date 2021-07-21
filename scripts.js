@@ -4,6 +4,7 @@ const gameBoard = (() => {
     { M3: "empty" }, { R1: "empty" }, { R2: "empty" }, { R3: "empty" }];
     const gameSquareDom = document.getElementsByClassName("gameSquare");
 
+    //TODO: This function is probably wrong right now. Make sure you change the corresponding gameBoardArray item based on which square was clicked. Write this out
     _addGamePiece = (function (gameSquareDom) {
         for (let i = 0; i < gameSquareDom.length; i++) {
             gameSquareDom.onClick = () => {
