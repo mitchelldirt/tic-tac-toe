@@ -1,12 +1,17 @@
+// This module sets up the game board and functionality for it as well.
 const gameBoard = (() => {
     let gameBoardArray = [{ L1: "empty" }, { L2: "empty" }, { L3: "empty" }, { M1: "empty" }, { M2: "empty" },
     { M3: "empty" }, { R1: "empty" }, { R2: "empty" }, { R3: "empty" }];
 })();
 
+// This module will control how the player can interact with `gameBoard`.
 const displayController = (() => {
+    
 })();
 
-// maybe add color as a property for Player in the future. Would change the color of the X and O
+// TODO: maybe add color as a property for Player in the future. Would change the color of the X and O
+
+// This is the player object that will be used to generate player 1 and 2.
 const Player = (name) => {
     const getName = () => name;
 };
