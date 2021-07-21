@@ -1,0 +1,55 @@
+.main-grid {
+  display: grid;
+  grid-template-areas:
+    "L1 M1 R1"
+    "L2 M2 R2"
+    "L3 M3 R3";
+  width: 300px;
+  height: 300px;
+  border: 4px solid black;
+}
+
+.L1 {
+  grid-area: L1;
+  border: 2px solid black;
+}
+
+.L2 {
+  grid-area: L2;
+  border: 2px solid black;
+}
+
+.L3 {
+  grid-area: L3;
+  border: 2px solid black;
+}
+
+.M1 {
+  grid-area: M1;
+  border: 2px solid black;
+}
+
+.M2 {
+  grid-area: M2;
+  border: 2px solid black;
+}
+
+.M3 {
+  grid-area: M3;
+  border: 2px solid black;
+}
+
+.R1 {
+  grid-area: R1;
+  border: 2px solid black;
+}
+
+.R2 {
+  grid-area: R2;
+  border: 2px solid black;
+}
+
+.R3 {
+  grid-area: R3;
+  border: 2px solid black;
+}
