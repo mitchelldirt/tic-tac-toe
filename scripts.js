@@ -1,28 +1,31 @@
 // This module sets up the game board and functionality for it as well.
 const gameBoard = (() => {
-    let gameBoardArray = [{ L1: "empty" }, { L2: "empty" }, { L3: "empty" }, { M1: "empty" }, { M2: "empty" },
-    { M3: "empty" }, { R1: "empty" }, { R2: "empty" }, { R3: "empty" }];
+    //TODO: update these objects to follow the format of L1 Object.
+    let gameBoardArray = [{ location: "L1", status: "empty" }, { "L2": "empty" }, { "L3": "empty" }, { "M1": "empty" }, { "M2": "empty" },
+    { "M3": "empty" }, { "R1": "empty" }, { "R2": "empty" }, { "R3": "empty" }];
 
-    //TODO: This function is probably wrong right now. Make sure you change the corresponding gameBoardArray item based on which square was clicked. Write this out
     _findSquare = (function () {
-        const gameSquareDom = document.getElementsByTagName("button");
-        for (let i = 0; i < gameBoardArray.length; i++) {
-            console.log(gameSquareDom);
-            gameSquareDom.onClick = () => {
-                // grab title of gamesquaredom
-                let location = gameSquareDom.title;
-                for (let i = 0; i < gameBoardArray.length; i++) {
-                    console.log(gameBoardArray[i])
-                    if (location === gameBoardArray[i]) {
-                        indexOfSquare = i;
-                        return;
-                    } else {
-                        console.log("Couldn't find location in array.");
-                        return;
+        window.addEventListener("load", function (event) {
+            const gameSquareDom = document.getElementsByTagName("button");
+            for (let i = 0; i < gameBoardArray.length; i++) {
+                console.log(gameSquareDom[i]);
+                gameSquareDom[i].addEventListener("click", () => {
+                    // grab title of gamesquaredom
+                    let location = gameSquareDom[i].title;
+                    for (let i = 0; i < gameBoardArray.length; i++) {
+                        console.log(gameBoardArray[i])
+                        if (location === gameBoardArray[i]) {
+                            indexOfSquare = i;
+                            return;
+                        } else {
+                            console.log("Couldn't find location in array.");
+                        }
                     }
-                }
+                })
+
             }
         }
+        );
     })()
     // compare that title against gameboardarray
 
