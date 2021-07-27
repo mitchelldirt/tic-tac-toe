@@ -12,18 +12,17 @@ const gameBoard = (() => {
                 console.log(gameSquareDom[i]);
                 gameSquareDom[i].addEventListener("click", () => {
                     // grab title of gamesquaredom
-                    let location = gameSquareDom[i].title;
+                    let location = gameSquareDom[i].id;
                     for (let i = 0; i < gameBoardArray.length; i++) {
                         console.log(gameBoardArray[i])
                         if (location === gameBoardArray[i].location) {
                             indexOfSquare = i;
-                            return;
+                            return _changeSquare(indexOfSquare, location);
                         } else {
                             console.log("Couldn't find location in array.");
                         }
                     }
                 })
-
             }
         }
         );
@@ -31,8 +30,28 @@ const gameBoard = (() => {
 
     /* Check if the square already has a 'x' or an 'o'. If it doesn't add it in the object status property based 
     on which players turn it is. */
-    _changeSquare = (function (indexOfSquare) {
-
+    _changeSquare = (function (indexOfSquare, location) {
+        const currentSquare = gameBoardArray[indexOfSquare]
+        const locationOfSquare = document.getElementById(location)
+        if (currentSquare.status === "empty") {
+            if (Player1.active === true) {
+                currentSquare.status = "X";
+                const X = document.createElement("img");
+                X.src = "./imgs/xPicture.png";
+                locationOfSquare.appendChild(X);
+                Player1.active = false;
+                Player2.active = true;
+            } else {
+                currentSquare.status = "O"
+                const O = document.createElement("img");
+                O.src = "./imgs/oCircle.png";
+                locationOfSquare.appendChild(O);
+                Player2.active = false;
+                Player1.active = true;
+            }
+        } else {
+            return;
+        }
     })()
 
     // Add the 'x' or the 'o' image to the correct location on the board
