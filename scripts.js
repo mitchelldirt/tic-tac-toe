@@ -17,7 +17,7 @@ const gameBoard = (() => {
                         console.log(gameBoardArray[i])
                         if (location === gameBoardArray[i].location) {
                             indexOfSquare = i;
-                            return _changeSquare(indexOfSquare, location);
+                            return gameBoard._changeSquare(indexOfSquare, location);
                         } else {
                             console.log("Couldn't find location in array.");
                         }
@@ -58,6 +58,11 @@ const gameBoard = (() => {
     _addMarker = (function () {
 
     })()
+
+    return {
+        findSquare: _findSquare,
+        changeSquare: _changeSquare
+    }
 })();
 
 // This module will control how the player can interact with `gameBoard`.
