@@ -60,8 +60,8 @@ const gameBoard = (() => {
     })()
 
     return {
-        findSquare: _findSquare,
-        changeSquare: _changeSquare
+        _findSquare,
+        _changeSquare
     }
 })();
 
