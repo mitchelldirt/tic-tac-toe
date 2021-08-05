@@ -5,21 +5,20 @@ const gameBoard = (() => {
     { location: "M3", status: "empty" }, { location: "R1", status: "empty" }, { location: "R2", status: "empty" },
     { location: "R3", status: "empty" }];
 
-    _findSquare = (function () {
+   const _findSquare = (function () {
         window.addEventListener("load", function (event) {
             const gameSquareDom = document.getElementsByTagName("button");
             for (let i = 0; i < gameBoardArray.length; i++) {
-                console.log(gameSquareDom[i]);
                 gameSquareDom[i].addEventListener("click", () => {
                     // grab title of gamesquaredom
                     let location = gameSquareDom[i].id;
+                    console.log(location)
                     for (let i = 0; i < gameBoardArray.length; i++) {
-                        console.log(gameBoardArray[i])
                         if (location === gameBoardArray[i].location) {
                             indexOfSquare = i;
-                            return gameBoard._changeSquare(indexOfSquare, location);
+                            return indexOfSquare, location;
                         } else {
-                            console.log("Couldn't find location in array.");
+                            continue;
                         }
                     }
                 })
@@ -30,7 +29,7 @@ const gameBoard = (() => {
 
     /* Check if the square already has a 'x' or an 'o'. If it doesn't add it in the object status property based 
     on which players turn it is. */
-    _changeSquare = (function (indexOfSquare, location) {
+    const _changeSquare = (function (indexOfSquare, location) {
         const currentSquare = gameBoardArray[indexOfSquare]
         const locationOfSquare = document.getElementById(location)
         if (currentSquare.status === "empty") {
@@ -95,5 +94,7 @@ const Player = (name) => {
     const getName = () => name;
 };
 
+const playGameButton = document.getElementById("submitBtn");
+playGameButton.onclick()
 
 
