@@ -5,7 +5,8 @@ const gameBoard = (() => {
     { location: "M3", status: "empty" }, { location: "R1", status: "empty" }, { location: "R2", status: "empty" },
     { location: "R3", status: "empty" }];
 
-   const _findSquare = (function () {
+    // find the location of the square in the gameBoardArray and in the HTML grid.
+    const _findSquare = (function () {
         window.addEventListener("load", function (event) {
             const gameSquareDom = document.getElementsByTagName("button");
             for (let i = 0; i < gameBoardArray.length; i++) {
@@ -90,8 +91,19 @@ const displayController = (() => {
 // TODO: maybe add color as a property for Player in the future. Would change the color of the X and O
 
 // This is the player object that will be used to generate player 1 and 2.
-const Player = (name) => {
-    const getName = () => name;
+const Player = (name, sign, active) => {
+    // `this` is used so that you can get the name or sign of each created Player object respectively.
+    this.name = name;
+    this.sign = sign;
+    this.active = active;
+
+    // object method that returns the sign of the Player object.
+    const getSign = () => {
+        return sign
+    };
+
+    //return getSign method so that it's available.
+    return { getSign }
 };
 
 const playGameButton = document.getElementById("submitBtn");
