@@ -1,95 +1,4 @@
-// This module sets up the game board and functionality for it as well.
-const gameBoard = (() => {
-    let gameBoardArray = [{ location: "L1", status: "empty" }, { location: "L2", status: "empty" },
-    { location: "L3", status: "empty" }, { location: "M1", status: "empty" }, { location: "M2", status: "empty" },
-    { location: "M3", status: "empty" }, { location: "R1", status: "empty" }, { location: "R2", status: "empty" },
-    { location: "R3", status: "empty" }];
-
-    // find the location of the square in the gameBoardArray and in the HTML grid.
-    const _findSquare = (function () {
-        window.addEventListener("load", function (event) {
-            const gameSquareDom = document.getElementsByTagName("button");
-            for (let i = 0; i < gameBoardArray.length; i++) {
-                gameSquareDom[i].addEventListener("click", () => {
-                    // grab title of gamesquaredom
-                    let location = gameSquareDom[i].id;
-                    console.log(location)
-                    for (let i = 0; i < gameBoardArray.length; i++) {
-                        if (location === gameBoardArray[i].location) {
-                            indexOfSquare = i;
-                            return indexOfSquare, location;
-                        } else {
-                            continue;
-                        }
-                    }
-                })
-            }
-        }
-        );
-    })()
-
-    /* Check if the square already has a 'x' or an 'o'. If it doesn't add it in the object status property based 
-    on which players turn it is. */
-    const _changeSquare = (function (indexOfSquare, location) {
-        const currentSquare = gameBoardArray[indexOfSquare]
-        const locationOfSquare = document.getElementById(location)
-        if (currentSquare.status === "empty") {
-            if (Player1.active === true) {
-                currentSquare.status = "X";
-                const X = document.createElement("img");
-                X.src = "./imgs/xPicture.png";
-                locationOfSquare.appendChild(X);
-                Player1.active = false;
-                Player2.active = true;
-            } else {
-                currentSquare.status = "O"
-                const O = document.createElement("img");
-                O.src = "./imgs/oCircle.png";
-                locationOfSquare.appendChild(O);
-                Player2.active = false;
-                Player1.active = true;
-            }
-        } else {
-            return;
-        }
-    })()
-
-    // Add the 'x' or the 'o' image to the correct location on the board
-    _addMarker = (function () {
-
-    })()
-
-    return {
-        _findSquare,
-        _changeSquare
-    }
-})();
-
-// This module will control how the player can interact with `gameBoard`.
-const displayController = (() => {
-    // Start the game by setting the active player (player1).
-    _startOfGame = (function () {
-
-    })()
-
-    /* Checks if a player has won the game. (use a switch statement here). return to the change player function
-    unless a player won the game then go to the '_endOfGame' function. */
-    _hasPlayerWon = (function () {
-
-    })()
-
-    // Displays the player that won. Adds a reset button which sets you back to the player set screen.
-    _endOfGame = (function () {
-
-    })()
-    // Changes which player is active based on which player is *currently* active.
-    _changePlayer = (function () {
-
-    })()
-})();
-
-// TODO: maybe add color as a property for Player in the future. Would change the color of the X and O
-
+const gameSquareDom = document.getElementsByTagName("button");
 // This is the player object that will be used to generate player 1 and 2.
 const Player = (name, sign, active) => {
     // `this` is used so that you can get the name or sign of each created Player object respectively.
@@ -106,7 +15,70 @@ const Player = (name, sign, active) => {
     return { getSign }
 };
 
-const playGameButton = document.getElementById("submitBtn");
-playGameButton.onclick()
+const gameBoard = (() => {
+    let gameBoardArray = [{ location: "L1", status: "" }, { location: "L2", status: "" },
+    { location: "L3", status: "" }, { location: "M1", status: "" }, { location: "M2", status: "" },
+    { location: "M3", status: "" }, { location: "R1", status: "" }, { location: "R2", status: "" },
+    { location: "R3", status: "" }];
+
+    const changeStatus = (location, sign) => {
+        for (let i = 0; i < gameBoardArray; i++) {
+            if (gameBoardArray[i].location === location) {
+                gameBoardArray[i].status = sign
+                return displayController._updateBoard()
+            }
+        }
+    }   
+
+    const getStatus = (index) => {
+        return gameBoardArray[index]
+    }
+    return { changeStatus, getStatus }
+})();
+
+// This module sets up the game board and functionality for it as well.
+const gameController = (() => {
+    let Player1 = Player("Mitchell", "X", true);
+    let Player2 = Player("person", "O", false);
+    let round = 1;
+    let isGameOver = false;
+    
+    const playRound = (location) => {
+        // insert checks here for if the game is done (win conditions and max round)
+        if (round % 2 === 1) {
+            let sign = Player1.sign;
+            for (let i = 0; i < gameBoard.gameBoardArray.length; i++) {
+                
+            }
+        } else {
+            let sign = Player2.sign;
+        }
+    }
+})();
+
+// This module will control how the player can interact with `gameBoard`.
+const displayController = (() => {
+    // find the location of the square in the gameBoardArray and in the HTML grid.
+    const _findSquare = (function () {
+        window.addEventListener("load", () => {
+            gameSquareDom.forEach((field) =>
+                field.addEventListener("click", (e) => {
+                    // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
+                    gameBoard.changeStatus(e.target.name, "X");
+                }))
+        })
+    })
+
+    const _updateBoard = () => {
+        for (let i = 0; i < 0; i++) {
+            gameSquareDom[i].textContent = gameBoard.getStatus[i]
+        }   
+    }
+
+    return { _findSquare, _updateBoard }
+})();
+
+/*const playGameButton = document.getElementById("submitBtn");
+playGameButton.onclick()*/
 
 
