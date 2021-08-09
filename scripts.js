@@ -1,4 +1,3 @@
-const gameSquareDom = document.getElementsByTagName("button");
 // This is the player object that will be used to generate player 1 and 2.
 const Player = (name, sign, active) => {
     // `this` is used so that you can get the name or sign of each created Player object respectively.
@@ -28,7 +27,7 @@ const gameBoard = (() => {
                 return displayController._updateBoard()
             }
         }
-    }   
+    }
 
     const getStatus = (index) => {
         return gameBoardArray[index]
@@ -42,13 +41,13 @@ const gameController = (() => {
     let Player2 = Player("person", "O", false);
     let round = 1;
     let isGameOver = false;
-    
+
     const playRound = (location) => {
         // insert checks here for if the game is done (win conditions and max round)
         if (round % 2 === 1) {
             let sign = Player1.sign;
             for (let i = 0; i < gameBoard.gameBoardArray.length; i++) {
-                
+
             }
         } else {
             let sign = Player2.sign;
@@ -59,24 +58,22 @@ const gameController = (() => {
 // This module will control how the player can interact with `gameBoard`.
 const displayController = (() => {
     // find the location of the square in the gameBoardArray and in the HTML grid.
-    const _findSquare = (function () {
-        window.addEventListener("load", () => {
-            gameSquareDom.forEach((field) =>
-                field.addEventListener("click", (e) => {
-                    // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
-                    gameBoard.changeStatus(e.target.name, "X");
-                }))
-        })
-    })
+    const gameSquareDom = document.querySelectorAll('.gameSquare');
+    gameSquareDom.forEach((field) =>
+        field.addEventListener("click", (e) => {
+            // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
+            gameBoard.changeStatus(e.target.name, "X");
+        }))
 
-    const _updateBoard = () => {
-        for (let i = 0; i < 0; i++) {
-            gameSquareDom[i].textContent = gameBoard.getStatus[i]
-        }   
+
+const _updateBoard = () => {
+    for (let i = 0; i < 0; i++) {
+        gameSquareDom[i].textContent = gameBoard.getStatus[i]
     }
+}
 
-    return { _findSquare, _updateBoard }
-})();
+return { _updateBoard }
+}) ();
 
 /*const playGameButton = document.getElementById("submitBtn");
 playGameButton.onclick()*/
