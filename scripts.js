@@ -38,22 +38,25 @@ const gameBoard = (() => {
 
 // This module sets up the game board and functionality for it as well.
 const gameController = (() => {
-    let Player1 = Player("Mitchell", "X", true);
-    let Player2 = Player("person", "O", false);
+    let Player1 = Player("Mitchell", "X");
+    let Player2 = Player("person", "O");
     let round = 1;
     let isGameOver = false;
 
     const playRound = (location) => {
         // insert checks here for if the game is done (win conditions and max round)
         if (round % 2 === 1) {
-            let sign = Player1.sign;
-            for (let i = 0; i < gameBoard.gameBoardArray.length; i++) {
-
-            }
+            let sign = Player1.getSign();
+            gameBoard.changeStatus(location, sign)
+            round++
         } else {
-            let sign = Player2.sign;
+            let sign = Player2.getSign();
+            gameBoard.changeStatus(location, sign)
+            round++;
         }
     }
+return { playRound }
+
 })();
 
 // This module will control how the player can interact with `gameBoard`.
@@ -73,9 +76,9 @@ playGameButton.onclick()*/
 window.addEventListener("load", () => {
     const gameSquareDom = document.querySelectorAll('.gameSquare');
     for (let i = 0; i < gameSquareDom.length; i++) {
-        gameSquareDom[i].addEventListener("click", (e) => {
+        gameSquareDom[i].addEventListener("click", () => {
             // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
-            gameBoard.changeStatus(gameSquareDom[i].id, "X");
+            gameController.playRound(gameSquareDom[i].id);
             console.log("hi")
         })
     }

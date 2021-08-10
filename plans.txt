@@ -1,3 +1,11 @@
-1. Enter names for player 1 and player 2 (playerSelect.html). Player 1 is 'X'
+create checks to make sure you can't override a square
 
-2. Player 1's name goes above the board and player 2's below. When it's the players turn their name turns green. When a player wins their name turns yellow and 'wins!' is added after their name. If they tie their names turn blue and 'tied' gets added to the end of both names.
+create win conditions using isGameOver function
+
+add a reset button
+
+add player1 or player2 wins message
+
+add splash screen so players name can appear
+
+CSS the shit out of this project
