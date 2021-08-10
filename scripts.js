@@ -21,16 +21,17 @@ const gameBoard = (() => {
     { location: "R3", status: "" }];
 
     const changeStatus = (location, sign) => {
-        for (let i = 0; i < gameBoardArray; i++) {
+        for (let i = 0; i < gameBoardArray.length; i++) {
             if (gameBoardArray[i].location === location) {
-                gameBoardArray[i].status = sign
-                return displayController._updateBoard()
+                gameBoardArray[i].status = sign;
+                displayController._updateBoard(i)
+                break;
             }
         }
     }
 
     const getStatus = (index) => {
-        return gameBoardArray[index]
+        return gameBoardArray[index].status;
     }
     return { changeStatus, getStatus }
 })();
@@ -58,24 +59,24 @@ const gameController = (() => {
 // This module will control how the player can interact with `gameBoard`.
 const displayController = (() => {
     // find the location of the square in the gameBoardArray and in the HTML grid.
-    const gameSquareDom = document.querySelectorAll('.gameSquare');
-    gameSquareDom.forEach((field) =>
-        field.addEventListener("click", (e) => {
-            // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
-            gameBoard.changeStatus(e.target.name, "X");
-        }))
-
-
-const _updateBoard = () => {
-    for (let i = 0; i < 0; i++) {
-        gameSquareDom[i].textContent = gameBoard.getStatus[i]
+    const _updateBoard = (index) => {
+        const gameSquareDom = document.querySelectorAll('.gameSquare');
+        gameSquareDom[index].textContent = gameBoard.getStatus(index);
     }
-}
 
-return { _updateBoard }
-}) ();
+    return { _updateBoard }
+})();
 
 /*const playGameButton = document.getElementById("submitBtn");
 playGameButton.onclick()*/
 
-
+window.addEventListener("load", () => {
+    const gameSquareDom = document.querySelectorAll('.gameSquare');
+    for (let i = 0; i < gameSquareDom.length; i++) {
+        gameSquareDom[i].addEventListener("click", (e) => {
+            // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
+            gameBoard.changeStatus(gameSquareDom[i].id, "X");
+            console.log("hi")
+        })
+    }
+})
