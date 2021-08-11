@@ -25,6 +25,7 @@ const gameBoard = (() => {
             if (gameBoardArray[i].location === location) {
                 gameBoardArray[i].status = sign;
                 displayController._updateBoard(i)
+                console.log(gameBoardArray);
                 break;
             }
         }
@@ -41,7 +42,6 @@ const gameController = (() => {
     let Player1 = Player("Mitchell", "X");
     let Player2 = Player("person", "O");
     let round = 1;
-    let isGameOver = false;
 
     const playRound = (location) => {
         // insert checks here for if the game is done (win conditions and max round)
@@ -54,8 +54,22 @@ const gameController = (() => {
             gameBoard.changeStatus(location, sign)
             round++;
         }
+        isGameOver();
     }
-return { playRound }
+
+    const isGameOver = () => {
+        let statusArray = [];
+        for (let i = 0; i < 9; i++) {
+            statusArray.push(gameBoard.getStatus(i));
+        }
+
+        if (round === 9) {
+            return console.log("both players tied");
+        }
+        console.log(statusArray);
+        statusArray = [];
+    }
+return { playRound, isGameOver }
 
 })();
 
@@ -78,6 +92,9 @@ window.addEventListener("load", () => {
     for (let i = 0; i < gameSquareDom.length; i++) {
         gameSquareDom[i].addEventListener("click", () => {
             // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
+            if (gameSquareDom[i].textContent != "") {
+                return
+            }
             gameController.playRound(gameSquareDom[i].id);
             console.log("hi")
         })

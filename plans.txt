@@ -1,5 +1,3 @@
-create checks to make sure you can't override a square
-
 create win conditions using isGameOver function
 
 add a reset button
