@@ -69,7 +69,7 @@ const gameController = (() => {
         console.log(statusArray);
         statusArray = [];
     }
-return { playRound, isGameOver }
+    return { playRound, isGameOver }
 
 })();
 
