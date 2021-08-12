@@ -1,9 +1,3 @@
-create win conditions using isGameOver function
-
-add a reset button
-
-add player1 or player2 wins message
-
 add splash screen so players name can appear
 
 CSS the shit out of this project
