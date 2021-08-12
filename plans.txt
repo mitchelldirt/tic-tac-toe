@@ -1,3 +1,0 @@
-add splash screen so players name can appear
-
-CSS the shit out of this project

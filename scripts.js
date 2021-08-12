@@ -28,12 +28,14 @@ const playerSelectScreen = document.getElementById("playerSelect");
 const submitButton = document.getElementById("submitBtn");
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const player1Name = document.getElementById("Player1").textContent;
-    const player2Name = document.getElementById("Player2").textContent;
-    Player1.setName(player1Name);
-    Player2.setName(player2Name);
+    const player1Name = document.getElementById("Player1");
+    const player2Name = document.getElementById("Player2");
+    Player1.setName(player1Name.value);
+    Player2.setName(player2Name.value);
     playerSelectScreen.classList.toggle("orNotToDisplay");
     game.classList.toggle("orNotToDisplay");
+    const displayedMessage = document.getElementById("displayedMessage");
+    displayedMessage.textContent = `${Player1.getName()}'s Turn!`
 })
 
 const gameBoard = (() => {
@@ -145,8 +147,6 @@ const displayController = (() => {
 })();
 
 window.addEventListener("load", () => {
-    const displayedMessage = document.getElementById("displayedMessage");
-    displayedMessage.textContent = `${Player1.getName()}'s Turn!`
     const gameSquareDom = document.querySelectorAll('.gameSquare');
     for (let i = 0; i < gameSquareDom.length; i++) {
         gameSquareDom[i].addEventListener("click", () => {
