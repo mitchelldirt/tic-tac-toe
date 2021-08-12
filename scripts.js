@@ -13,12 +13,28 @@ const Player = (name, sign) => {
         return name;
     };
 
+    const setName = (newName) => {
+        name = newName;
+    }
     //return getSign method so that it's available.
-    return { getSign, getName }
+    return { getSign, getName, setName }
 };
 
 let Player1 = Player("Player1", "X");
 let Player2 = Player("Player2", "O");
+
+const game = document.getElementById("game");
+const playerSelectScreen = document.getElementById("playerSelect");
+const submitButton = document.getElementById("submitBtn");
+submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    const player1Name = document.getElementById("Player1").textContent;
+    const player2Name = document.getElementById("Player2").textContent;
+    Player1.setName(player1Name);
+    Player2.setName(player2Name);
+    playerSelectScreen.classList.toggle("orNotToDisplay");
+    game.classList.toggle("orNotToDisplay");
+})
 
 const gameBoard = (() => {
     let gameBoardArray = [{ location: "L1", status: "" }, { location: "L2", status: "" },
@@ -91,11 +107,13 @@ const gameController = ((p1, p2) => {
         if ((statusArray[0] === "X" && statusArray[1] === "X" && statusArray[2] === "X") || (statusArray[3] === "X" && statusArray[4] === "X" && statusArray[5] === "X") || (statusArray[6] === "X" && statusArray[7] === "X" && statusArray[8] === "X") || (statusArray[0] === "X" && statusArray[4] === "X" && statusArray[8] === "X") || (statusArray[2] === "X" && statusArray[4] === "X" && statusArray[6] === "X") || (statusArray[0] === "X" && statusArray[3] === "X" && statusArray[6] === "X") || (statusArray[1] === "X" && statusArray[4] === "X" && statusArray[7] === "X") || (statusArray[2] === "X" && statusArray[5] === "X" && statusArray[8] === "X")) {
             gameOver = true;
             displayedMessage.textContent = `${p1.getName()} Won!`;
+            return;
         }
 
         if ((statusArray[0] === "O" && statusArray[1] === "O" && statusArray[2] === "O") || (statusArray[3] === "O" && statusArray[4] === "O" && statusArray[5] === "O") || (statusArray[6] === "O" && statusArray[7] === "O" && statusArray[8] === "O") || (statusArray[0] === "O" && statusArray[4] === "O" && statusArray[8] === "O") || (statusArray[2] === "O" && statusArray[4] === "O" && statusArray[6] === "O") || (statusArray[0] === "O" && statusArray[3] === "O" && statusArray[6] === "O") || (statusArray[1] === "O" && statusArray[4] === "O" && statusArray[7] === "O") || (statusArray[2] === "O" && statusArray[5] === "O" && statusArray[8] === "O")) {
             gameOver = true;
             displayedMessage.textContent = `${p2.getName()} Won!`;
+            return;
         }
         if (round === 10) {
             gameOver = true
@@ -125,9 +143,6 @@ const displayController = (() => {
 
     return { _updateBoard }
 })();
-
-/*const playGameButton = document.getElementById("submitBtn");
-playGameButton.onclick()*/
 
 window.addEventListener("load", () => {
     const displayedMessage = document.getElementById("displayedMessage");
