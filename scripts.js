@@ -17,8 +17,8 @@ const Player = (name, sign) => {
     return { getSign, getName }
 };
 
-let Player1 = Player("Mitchell", "X");
-let Player2 = Player("person", "O");
+let Player1 = Player("Player1", "X");
+let Player2 = Player("Player2", "O");
 
 const gameBoard = (() => {
     let gameBoardArray = [{ location: "L1", status: "" }, { location: "L2", status: "" },
