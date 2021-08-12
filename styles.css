@@ -2,10 +2,6 @@
   display: none;
 }
 
-.toDisplay {
-  display: unset;
-}
-
 .main-grid {
   display: grid;
   grid-template-areas:

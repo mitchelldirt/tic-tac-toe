@@ -30,8 +30,18 @@ submitButton.addEventListener("click", (event) => {
     event.preventDefault();
     const player1Name = document.getElementById("Player1");
     const player2Name = document.getElementById("Player2");
-    Player1.setName(player1Name.value);
-    Player2.setName(player2Name.value);
+    if (player1Name.value === "") {
+        player1Name.value = "Player1"
+    } else {
+        Player1.setName(player1Name.value);
+    }
+
+    if (player2Name.value === "") {
+        player2Name.value = "Player2"
+    } else {
+        Player2.setName(player2Name.value);
+    }
+
     playerSelectScreen.classList.toggle("orNotToDisplay");
     game.classList.toggle("orNotToDisplay");
     const displayedMessage = document.getElementById("displayedMessage");
