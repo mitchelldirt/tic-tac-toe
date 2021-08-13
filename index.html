@@ -13,29 +13,33 @@
     <div id="playerSelect">
         <form>
             <label for="Player1">Player 1 Name:</label>
-            <input type="text" name="Player1" id="Player1">
+            <input class="fiftyPercentWidth" type="text" name="Player1" id="Player1">
             <label for="Player1">Player 2 Name:</label>
-            <input type="text" name="Player2" id="Player2">
-            <button id="submitBtn">Start Game!</button>
+            <input class="fiftyPercentWidth" type="text" name="Player2" id="Player2">
+            <center>
+                <button id="submitBtn">Start Game!</button>
+            </center>
         </form>
     </div>
 
-    <div class="orNotToDisplay" id="game">
-        <p id="displayedMessage">blah</p>
-        <section class="main-grid">
-            <button id="L1" class="gameSquare L1"></button>
-            <button id="L2" class="gameSquare L2"></button>
-            <button id="L3" class="gameSquare L3"></button>
-            <button id="M1" class="gameSquare M1"></button>
-            <button id="M2" class="gameSquare M2"></button>
-            <button id="M3" class="gameSquare M3"></button>
-            <button id="R1" class="gameSquare R1"></button>
-            <button id="R2" class="gameSquare R2"></button>
-            <button id="R3" class="gameSquare R3"></button>
-        </section>
-        <button id="resetButton">Reset Game</button>
-        <button onClick="window.location.reload();">Change Players</button>
-    </div>
+    <center>
+        <div class="orNotToDisplay" id="game">
+            <p id="displayedMessage">blah</p>
+            <section id="main-grid" class="main-grid">
+                <button id="L1" class="gameSquare L1"></button>
+                <button id="L2" class="gameSquare L2"></button>
+                <button id="L3" class="gameSquare L3"></button>
+                <button id="M1" class="gameSquare M1"></button>
+                <button id="M2" class="gameSquare M2"></button>
+                <button id="M3" class="gameSquare M3"></button>
+                <button id="R1" class="gameSquare R1"></button>
+                <button id="R2" class="gameSquare R2"></button>
+                <button id="R3" class="gameSquare R3"></button>
+            </section>
+            <button id="resetButton">Reset Game</button>
+            <button onClick="window.location.reload();">Change Players</button>
+        </div>
+    </center>
 </body>
 <script src="scripts.js"></script>
 
