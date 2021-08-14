@@ -17,27 +17,29 @@
             <label for="Player1">Player 2 Name:</label>
             <input class="fiftyPercentWidth" type="text" name="Player2" id="Player2">
             <center>
-                <button id="submitBtn">Start Game!</button>
+                <button class="buttons" id="submitBtn">Start Game!</button>
             </center>
         </form>
     </div>
 
+    <!--TODO add header that just says tic tac toe-->
+    <!--TODO add footer that just says "Created By: Mitchell Mudd (name is a link to portfolio website)"-->
     <center>
         <div class="orNotToDisplay" id="game">
             <p id="displayedMessage">blah</p>
             <section id="main-grid" class="main-grid">
-                <button id="L1" class="gameSquare L1"></button>
-                <button id="L2" class="gameSquare L2"></button>
-                <button id="L3" class="gameSquare L3"></button>
-                <button id="M1" class="gameSquare M1"></button>
-                <button id="M2" class="gameSquare M2"></button>
-                <button id="M3" class="gameSquare M3"></button>
-                <button id="R1" class="gameSquare R1"></button>
-                <button id="R2" class="gameSquare R2"></button>
-                <button id="R3" class="gameSquare R3"></button>
+                <button id="L1" class="gameSquare L1 gameSquareText"></button>
+                <button id="L2" class="gameSquare L2 gameSquareText"></button>
+                <button id="L3" class="gameSquare L3 gameSquareText"></button>
+                <button id="M1" class="gameSquare M1 gameSquareText"></button>
+                <button id="M2" class="gameSquare M2 gameSquareText"></button>
+                <button id="M3" class="gameSquare M3 gameSquareText"></button>
+                <button id="R1" class="gameSquare R1 gameSquareText"></button>
+                <button id="R2" class="gameSquare R2 gameSquareText"></button>
+                <button id="R3" class="gameSquare R3 gameSquareText"></button>
             </section>
-            <button id="resetButton">Reset Game</button>
-            <button onClick="window.location.reload();">Change Players</button>
+            <button class="buttons" id="resetButton">Reset Game</button>
+            <button class="buttons" onClick="window.location.reload();">Change Players</button>
         </div>
     </center>
 </body>

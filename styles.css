@@ -1,3 +1,31 @@
+:root {
+  --background-green: #00abe1;
+  --accent-red: #161f6d;
+}
+
+.gameSquareText {
+  font-size: 3em;
+  color: var(--accent-red);
+}
+
+.buttons {
+  background-color: #161f6d;
+  color: white;
+}
+
+label {
+  color: var(--accent-red)
+}
+
+p {
+  font-size: 2em;
+  color: white;
+}
+
+html {
+  background-color: var(--background-green);
+}
+
 .orNotToDisplay {
   display: none;
 }
@@ -10,74 +38,83 @@
     "L3 M3 R3";
   width: 300px;
   height: 300px;
-  border: 4px solid black;
+  border: 4px solid var(--accent-red)
 }
 
 #main-grid {
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 
 .L1 {
   grid-area: L1;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .L2 {
   grid-area: L2;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .L3 {
   grid-area: L3;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .M1 {
   grid-area: M1;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .M2 {
   grid-area: M2;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .M3 {
   grid-area: M3;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .R1 {
   grid-area: R1;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .R2 {
   grid-area: R2;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .R3 {
   grid-area: R3;
-  border: 2px solid black;
+  border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
+  background-color: var(--background-green);;
 }
 
 .fiftyPercentWidth {
