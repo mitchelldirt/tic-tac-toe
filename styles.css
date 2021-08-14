@@ -13,8 +13,12 @@
   color: white;
 }
 
+#resetButton {
+  margin-bottom: 2%;
+}
+
 label {
-  color: var(--accent-red)
+  color: var(--accent-red);
 }
 
 p {
@@ -56,7 +60,7 @@ footer {
     "L3 M3 R3";
   width: 300px;
   height: 300px;
-  border: 4px solid var(--accent-red)
+  border: 4px solid var(--accent-red);
 }
 
 #main-grid {
@@ -68,7 +72,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .L2 {
@@ -76,7 +81,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .L3 {
@@ -84,7 +90,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .M1 {
@@ -92,7 +99,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .M2 {
@@ -100,7 +108,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .M3 {
@@ -108,7 +117,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .R1 {
@@ -116,7 +126,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .R2 {
@@ -124,7 +135,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .R3 {
@@ -132,7 +144,8 @@ footer {
   border: 2px solid var(--accent-red);
   width: 100px;
   height: 100px;
-  background-color: var(--background-green);;
+  background-color: var(--background-green);
+  text-align: center;
 }
 
 .fiftyPercentWidth {
