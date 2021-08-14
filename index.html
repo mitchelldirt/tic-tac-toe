@@ -14,6 +14,7 @@
         <form>
             <label for="Player1">Player 1 Name:</label>
             <input class="fiftyPercentWidth" type="text" name="Player1" id="Player1">
+            <br>
             <label for="Player1">Player 2 Name:</label>
             <input class="fiftyPercentWidth" type="text" name="Player2" id="Player2">
             <center>
@@ -26,6 +27,11 @@
     <!--TODO add footer that just says "Created By: Mitchell Mudd (name is a link to portfolio website)"-->
     <center>
         <div class="orNotToDisplay" id="game">
+            <header>
+                <h1>
+                    Tic Tac Toe
+                </h1>
+            </header>
             <p id="displayedMessage">blah</p>
             <section id="main-grid" class="main-grid">
                 <button id="L1" class="gameSquare L1 gameSquareText"></button>
@@ -40,6 +46,7 @@
             </section>
             <button class="buttons" id="resetButton">Reset Game</button>
             <button class="buttons" onClick="window.location.reload();">Change Players</button>
+            <footer>Created By: <a target="_blank" href="https://www.mitchellmudd.tech/">Mitchell Mudd</a></footer>
         </div>
     </center>
 </body>

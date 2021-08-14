@@ -26,6 +26,24 @@ html {
   background-color: var(--background-green);
 }
 
+header {
+  background-color: var(--accent-red);
+  width: 100%;
+}
+
+h1 {
+  color: var(--background-green);
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-red);
+  margin: 0% 0% 0% 0%;
+  font-size: 3em;
+}
+
+footer {
+  font-size: 1.5em;
+}
+
 .orNotToDisplay {
   display: none;
 }
