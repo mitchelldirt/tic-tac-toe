@@ -74,6 +74,7 @@ footer {
   height: 100px;
   background-color: var(--background-green);
   text-align: center;
+  margin: auto;
 }
 
 .L2 {
