@@ -3,14 +3,19 @@
   --accent-red: #161f6d;
 }
 
+.gamePiece {
+  font-size: 2em;
+}
+
 .gameSquareText {
   font-size: 3em;
   color: var(--accent-red);
 }
 
 .gameSquare {
-  display: inline;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttons {

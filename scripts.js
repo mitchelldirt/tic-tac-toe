@@ -149,8 +149,8 @@ const gameController = ((p1, p2) => {
 const displayController = (() => {
     // find the location of the square in the gameBoardArray and in the HTML grid.
     const _updateBoard = (index) => {
-        const gameSquareDom = document.querySelectorAll('.gameSquare');
-        gameSquareDom[index].textContent = gameBoard.getStatus(index);
+        const gamePiece = document.querySelectorAll('.gameSquare > p');
+        gamePiece[index].textContent = gameBoard.getStatus(index);
     }
 
     return { _updateBoard }
@@ -158,10 +158,11 @@ const displayController = (() => {
 
 window.addEventListener("load", () => {
     const gameSquareDom = document.querySelectorAll('.gameSquare');
+    const gamePiece = document.querySelectorAll('.gameSquare > p');
     for (let i = 0; i < gameSquareDom.length; i++) {
         gameSquareDom[i].addEventListener("click", () => {
             // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
-            if (gameSquareDom[i].textContent != "") {
+            if (gamePiece[i].textContent != "") {
                 return
             }
             gameController.playRound(gameSquareDom[i].id);
