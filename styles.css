@@ -67,6 +67,15 @@ footer {
   margin-bottom: 3%;
 }
 
+.center {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
 .L1 {
   grid-area: L1;
   border: 2px solid var(--accent-red);
