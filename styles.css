@@ -3,30 +3,6 @@
   --accent-red: #161f6d;
 }
 
-.gamePiece {
-  font-size: 2em;
-}
-
-.gameSquareText {
-  font-size: 3em;
-  color: var(--accent-red);
-}
-
-.gameSquare {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.buttons {
-  background-color: #161f6d;
-  color: white;
-}
-
-#resetButton {
-  margin-bottom: 2%;
-}
-
 label {
   color: var(--accent-red);
 }
@@ -58,7 +34,39 @@ footer {
   font-size: 1.5em;
 }
 
-.orNotToDisplay {
+input {
+  width: 50%;
+}
+
+.gamePiece {
+  font-size: 2em;
+}
+
+.gameSquareText {
+  font-size: 3em;
+  color: var(--accent-red);
+}
+
+.gameSquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--accent-red);
+  width: 100px;
+  height: 100px;
+  background-color: var(--background-green);
+  text-align: center;
+  margin: 0;
+  left: 50%;
+  top: 50%;
+}
+
+.buttons {
+  background-color: #161f6d;
+  color: white;
+}
+
+.displayNone {
   display: none;
 }
 
@@ -73,8 +81,40 @@ footer {
   border: 4px solid var(--accent-red);
 }
 
-#main-grid {
-  margin-bottom: 3%;
+.L1 {
+  grid-area: L1;
+}
+
+.L2 {
+  grid-area: L2;
+}
+
+.L3 {
+  grid-area: L3;
+}
+
+.M1 {
+  grid-area: M1;
+}
+
+.M2 {
+  grid-area: M2;
+}
+
+.M3 {
+  grid-area: M3;
+}
+
+.R1 {
+  grid-area: R1;
+}
+
+.R2 {
+  grid-area: R2;
+}
+
+.R3 {
+  grid-area: R3;
 }
 
 .center {
@@ -82,92 +122,12 @@ footer {
   justify-content: center;
 }
 
-.L1 {
-  grid-area: L1;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-  margin: 0;
-  left: 50%;
-  top: 50%;
+#resetButton {
+  margin-bottom: 2%;
 }
 
-.L2 {
-  grid-area: L2;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.L3 {
-  grid-area: L3;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.M1 {
-  grid-area: M1;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.M2 {
-  grid-area: M2;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.M3 {
-  grid-area: M3;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.R1 {
-  grid-area: R1;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.R2 {
-  grid-area: R2;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.R3 {
-  grid-area: R3;
-  border: 2px solid var(--accent-red);
-  width: 100px;
-  height: 100px;
-  background-color: var(--background-green);
-  text-align: center;
-}
-
-.fiftyPercentWidth {
-  width: 50%;
+#main-grid {
+  margin-bottom: 3%;
 }
 
 #submitBtn {

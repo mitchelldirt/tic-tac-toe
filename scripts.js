@@ -9,10 +9,12 @@ const Player = (name, sign) => {
         return sign
     };
 
+    // getName is used for displaying the players turn each round indicating that it's there round.
     const getName = () => {
         return name;
     };
 
+    // setName changes the name from Player1 or Player2 to whatever name the user inputs.
     const setName = (newName) => {
         name = newName;
     }
@@ -20,12 +22,14 @@ const Player = (name, sign) => {
     return { getSign, getName, setName }
 };
 
+// Declaring default player objects in case the user hits submit without actually entering names.
 let Player1 = Player("Player1", "X");
 let Player2 = Player("Player2", "O");
 
-const game = document.getElementById("game");
+const gameDisplay = document.getElementById("gameDisplay");
 const playerSelectScreen = document.getElementById("playerSelect");
 const submitButton = document.getElementById("submitBtn");
+
 submitButton.addEventListener("click", (event) => {
     event.preventDefault();
     const player1Name = document.getElementById("Player1");
@@ -42,11 +46,11 @@ submitButton.addEventListener("click", (event) => {
         Player2.setName(player2Name.value);
     }
 
-    playerSelectScreen.classList.toggle("orNotToDisplay");
-    game.classList.toggle("orNotToDisplay");
+    playerSelectScreen.classList.toggle("displayNone");
+    gameDisplay.classList.toggle("displayNone");
     const displayedMessage = document.getElementById("displayedMessage");
     displayedMessage.textContent = `${Player1.getName()}'s Turn!`
-})
+});
 
 const gameBoard = (() => {
     let gameBoardArray = [{ location: "L1", status: "" }, { location: "L2", status: "" },
@@ -61,7 +65,7 @@ const gameBoard = (() => {
         }
         gameController.resetGameController();
         return;
-    }
+    };
 
     const changeStatus = (location, sign) => {
         for (let i = 0; i < gameBoardArray.length; i++) {
@@ -72,11 +76,12 @@ const gameBoard = (() => {
                 break;
             }
         }
-    }
+    };
 
     const getStatus = (index) => {
         return gameBoardArray[index].status;
-    }
+    };
+
     return { changeStatus, getStatus, resetGame }
 })();
 
@@ -84,7 +89,7 @@ const gameBoard = (() => {
 const gameController = ((p1, p2) => {
     //TODO: When you submit names make the left one be an X and right one be an O. Make the input boxes be P1 and P2 and set that variable in the let player1 and let player2 assignments below.
     p1 = Player1;
-    p2 = Player2
+    p2 = Player2;
     let round = 1;
     let gameOver = false;
     const displayedMessage = document.getElementById("displayedMessage");
@@ -107,13 +112,13 @@ const gameController = ((p1, p2) => {
             displayedMessage.textContent = `${p1Name}'s Turn!`;
         }
         isGameOver();
-    }
+    };
 
     const isGameOver = () => {
         let statusArray = [];
         for (let i = 0; i < 9; i++) {
             statusArray.push(gameBoard.getStatus(i));
-        }
+        };
 
 
         if ((statusArray[0] === "X" && statusArray[1] === "X" && statusArray[2] === "X") || (statusArray[3] === "X" && statusArray[4] === "X" && statusArray[5] === "X") || (statusArray[6] === "X" && statusArray[7] === "X" && statusArray[8] === "X") || (statusArray[0] === "X" && statusArray[4] === "X" && statusArray[8] === "X") || (statusArray[2] === "X" && statusArray[4] === "X" && statusArray[6] === "X") || (statusArray[0] === "X" && statusArray[3] === "X" && statusArray[6] === "X") || (statusArray[1] === "X" && statusArray[4] === "X" && statusArray[7] === "X") || (statusArray[2] === "X" && statusArray[5] === "X" && statusArray[8] === "X")) {
@@ -127,19 +132,20 @@ const gameController = ((p1, p2) => {
             displayedMessage.textContent = `${p2.getName()} Won!`;
             return;
         }
+
         if (round === 10) {
             gameOver = true
             displayedMessage.textContent = `Uh oh, you tied!`;
         }
         console.log(statusArray);
         statusArray = [];
-    }
+    };
 
     const resetGameController = () => {
         gameOver = false;
         round = 1
         displayedMessage.textContent = `${p1.getName()}'s Turn!`
-    }
+    };
 
     return { playRound, isGameOver, resetGameController }
 
@@ -151,7 +157,7 @@ const displayController = (() => {
     const _updateBoard = (index) => {
         const gamePiece = document.querySelectorAll('.gameSquare > p');
         gamePiece[index].textContent = gameBoard.getStatus(index);
-    }
+    };
 
     return { _updateBoard }
 })();
@@ -159,6 +165,7 @@ const displayController = (() => {
 window.addEventListener("load", () => {
     const gameSquareDom = document.querySelectorAll('.gameSquare');
     const gamePiece = document.querySelectorAll('.gameSquare > p');
+    
     for (let i = 0; i < gameSquareDom.length; i++) {
         gameSquareDom[i].addEventListener("click", () => {
             // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
@@ -168,8 +175,8 @@ window.addEventListener("load", () => {
             gameController.playRound(gameSquareDom[i].id);
             console.log("hi")
         })
-    }
-})
+    };
+});
 
 const resetButton = document.getElementById("resetButton");
 resetButton.addEventListener("click", gameBoard.resetGame);

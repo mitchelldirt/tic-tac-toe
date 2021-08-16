@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <!--Below is the HTML for the splash screen-->
     <div id="playerSelect">
         <form>
             <label for="Player1">Player 1 Name:</label>
@@ -23,10 +24,9 @@
         </form>
     </div>
 
-    <!--TODO add header that just says tic tac toe-->
-    <!--TODO add footer that just says "Created By: Mitchell Mudd (name is a link to portfolio website)"-->
     <center>
-        <div class="orNotToDisplay" id="game">
+        <!--Below is the HTML for the actual game-->
+        <div class="displayNone" id="gameDisplay">
             <header>
                 <h1>
                     Tic Tac Toe
@@ -34,15 +34,33 @@
             </header>
             <p id="displayedMessage">blah</p>
             <section id="main-grid" class="main-grid">
-                <button id="L1" class="gameSquare L1 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="L2" class="gameSquare L2 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="L3" class="gameSquare L3 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="M1" class="gameSquare M1 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="M2" class="gameSquare M2 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="M3" class="gameSquare M3 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="R1" class="gameSquare R1 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="R2" class="gameSquare R2 gameSquareText"><p class="gamePiece"></p></button>
-                <button id="R3" class="gameSquare R3 gameSquareText"><p class="gamePiece"></p></button>
+                <button id="L1" class="gameSquare L1 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="L2" class="gameSquare L2 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="L3" class="gameSquare L3 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="M1" class="gameSquare M1 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="M2" class="gameSquare M2 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="M3" class="gameSquare M3 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="R1" class="gameSquare R1 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="R2" class="gameSquare R2 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
+                <button id="R3" class="gameSquare R3 gameSquareText">
+                    <p class="gamePiece"></p>
+                </button>
             </section>
             <button class="buttons" id="resetButton">Reset Game</button>
             <button class="buttons" onClick="window.location.reload();">Change Players</button>
