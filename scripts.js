@@ -53,11 +53,15 @@ submitButton.addEventListener("click", (event) => {
 });
 
 const gameBoard = (() => {
+    /* location is used to pick out square on the board and status is used to 
+     update the board in the `_updateBoard()` function */
     let gameBoardArray = [{ location: "L1", status: "" }, { location: "L2", status: "" },
     { location: "L3", status: "" }, { location: "M1", status: "" }, { location: "M2", status: "" },
     { location: "M3", status: "" }, { location: "R1", status: "" }, { location: "R2", status: "" },
     { location: "R3", status: "" }];
 
+    /* resets the array and visible board but keeps the same players active. 
+    It then calls `resetGameController()` to reset the backend game functionality. */
     const resetGame = () => {
         for (let i = 0; i < gameBoardArray.length; i++) {
             gameBoardArray[i].status = "";
@@ -67,6 +71,7 @@ const gameBoard = (() => {
         return;
     };
 
+    // changes the status in `gameBoardArray`
     const changeStatus = (location, sign) => {
         for (let i = 0; i < gameBoardArray.length; i++) {
             if (gameBoardArray[i].location === location) {
@@ -78,6 +83,7 @@ const gameBoard = (() => {
         }
     };
 
+    // grabs status so that the status can be updated. Used in `_updateBoard()`
     const getStatus = (index) => {
         return gameBoardArray[index].status;
     };
@@ -87,16 +93,16 @@ const gameBoard = (() => {
 
 // This module sets up the game board and functionality for it as well.
 const gameController = ((p1, p2) => {
-    //TODO: When you submit names make the left one be an X and right one be an O. Make the input boxes be P1 and P2 and set that variable in the let player1 and let player2 assignments below.
     p1 = Player1;
     p2 = Player2;
     let round = 1;
     let gameOver = false;
     const displayedMessage = document.getElementById("displayedMessage");
+    /* This controls the turn based play, checks if the game is over, and 
+    changes the display message for which player is active */
     const playRound = (location) => {
         let p1Name = p1.getName();
         let p2Name = p2.getName();
-        // insert checks here for if the game is done (win conditions and max round)
         if (gameOver === true) {
             return;
         }
@@ -114,13 +120,14 @@ const gameController = ((p1, p2) => {
         isGameOver();
     };
 
+    // checks if the game uis over or not
     const isGameOver = () => {
         let statusArray = [];
         for (let i = 0; i < 9; i++) {
             statusArray.push(gameBoard.getStatus(i));
         };
 
-
+        // Below code is a little cringe. Try and ignore it lol
         if ((statusArray[0] === "X" && statusArray[1] === "X" && statusArray[2] === "X") || (statusArray[3] === "X" && statusArray[4] === "X" && statusArray[5] === "X") || (statusArray[6] === "X" && statusArray[7] === "X" && statusArray[8] === "X") || (statusArray[0] === "X" && statusArray[4] === "X" && statusArray[8] === "X") || (statusArray[2] === "X" && statusArray[4] === "X" && statusArray[6] === "X") || (statusArray[0] === "X" && statusArray[3] === "X" && statusArray[6] === "X") || (statusArray[1] === "X" && statusArray[4] === "X" && statusArray[7] === "X") || (statusArray[2] === "X" && statusArray[5] === "X" && statusArray[8] === "X")) {
             gameOver = true;
             displayedMessage.textContent = `${p1.getName()} Won!`;
@@ -132,7 +139,7 @@ const gameController = ((p1, p2) => {
             displayedMessage.textContent = `${p2.getName()} Won!`;
             return;
         }
-
+        // If it's round 10 then all squares are full.
         if (round === 10) {
             gameOver = true
             displayedMessage.textContent = `Uh oh, you tied!`;
@@ -141,6 +148,7 @@ const gameController = ((p1, p2) => {
         statusArray = [];
     };
 
+    // Resets the game 
     const resetGameController = () => {
         gameOver = false;
         round = 1
@@ -162,10 +170,11 @@ const displayController = (() => {
     return { _updateBoard }
 })();
 
+// When the page loads it adds the event listeners to each tic tac toe square.
 window.addEventListener("load", () => {
     const gameSquareDom = document.querySelectorAll('.gameSquare');
     const gamePiece = document.querySelectorAll('.gameSquare > p');
-    
+
     for (let i = 0; i < gameSquareDom.length; i++) {
         gameSquareDom[i].addEventListener("click", () => {
             // TODO: will need to add checks here to make sure the game isn't over and that the Square isn't already filled
